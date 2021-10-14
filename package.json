@@ -1,0 +1,55 @@
+{
+  "name": "react-material-file-upload",
+  "version": "0.0.1",
+  "description": "File upload compoennt for React with Material UI components",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "repository": "https://github.com/iamchathu/react-material-file-upload.git",
+  "author": "Chathu Vishwajith <iam@chathu.me>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf lib/",
+    "tsc": "tsc -b .",
+    "build": "rollup -c",
+    "prepare": "install-peers",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --quiet --fix ",
+    "prepublishOnly": "yarn clean && yarn build",
+    "release": "standard-version"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.0.4",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/react": "^17.0.30",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.1",
+    "install-peers-cli": "^2.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.58.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "standard-version": "^9.3.1",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "react-dropzone": "^11.4.2"
+  }
+}

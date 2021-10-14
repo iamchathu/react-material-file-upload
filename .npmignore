@@ -1,0 +1,6 @@
+.commitlintrc.json
+.prettierignore
+.prettierrc
+tsconfig.json
+.vscode/
+.husky/
