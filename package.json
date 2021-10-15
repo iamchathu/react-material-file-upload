@@ -1,6 +1,6 @@
 {
   "name": "react-material-file-upload",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "File upload compoennt for React with Material UI components",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
