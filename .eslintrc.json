@@ -2,5 +2,16 @@
   "extends": ["airbnb", "airbnb-typescript", "plugin:react/jsx-runtime", "prettier"],
   "parserOptions": {
     "project": "./tsconfig.json"
-  }
+  },
+  "rules": {
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "custom": "ignore",
+        "exceptions": [""]
+      }
+    ]
+  },
+  "reportUnusedDisableDirectives": true
 }
