@@ -1,16 +1,17 @@
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import FileUpload, { FileUploadProps } from '..';
 
 export default {
   component: FileUpload,
   title: 'Component/FileUpload',
-  argTypes: {
-    onDropAccepted: { action: 'onDropAccepted' },
-  },
+  argTypes: {},
 } as Meta;
 
-const Template: Story<FileUploadProps> = (args) => <FileUpload {...args} />;
+const Template: Story<FileUploadProps> = (args) => {
+  const [files, setFiles] = useState<File[]>([]);
+  return <FileUpload {...args} value={files} onChange={setFiles} />;
+};
 
 export const Basic = Template.bind({});
 export const ImageUpload = Template.bind({});
