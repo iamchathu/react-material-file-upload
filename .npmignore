@@ -1,6 +1,11 @@
-.commitlintrc.json
-.prettierignore
-.prettierrc
-tsconfig.json
 .vscode/
 .husky/
+.storybook/
+.commitlintrc.json
+.eslintignore
+.eslintrc.json
+.lintstagedrc.json
+.prettierignore
+.prettierrc
+rollup.config.js
+tsconfig.json
