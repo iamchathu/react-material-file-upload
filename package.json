@@ -66,5 +66,12 @@
   },
   "dependencies": {
     "react-dropzone": "^11.4.2"
-  }
+  },
+  "keywords": [
+    "react",
+    "react component",
+    "file upload",
+    "material ui",
+    "upload"
+  ]
 }

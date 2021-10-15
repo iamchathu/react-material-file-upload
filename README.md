@@ -32,5 +32,7 @@ const App = () => {
 };
 ```
 
+[![Edit react-material-file-upload](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-material-file-upload-t156i?fontsize=14&hidenavigation=1&theme=dark)
+
 [react-dropzone]: https://react-dropzone.js.org/
 [mui]: https://mui.com
