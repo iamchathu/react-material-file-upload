@@ -1,7 +1,3 @@
-import { Meta } from '@storybook/addon-docs';
-
-<Meta title="Component/Introduction" />
-
 # React Material File Upload
 
 [React Dropzone][react-dropzone] based [Material UI][mui] file upload component for React.js. This is created for [Material UI][mui] v5 or later versions.
