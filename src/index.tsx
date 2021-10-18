@@ -1,5 +1,5 @@
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import type { TypographyProps } from '@mui/material';
+import type { ButtonProps, TypographyProps } from '@mui/material';
 import { Box, Button, FormControl, FormHelperText, Typography } from '@mui/material';
 import type { SxProps, Theme } from '@mui/system';
 import { DropzoneOptions, useDropzone } from 'react-dropzone';
@@ -8,6 +8,7 @@ import FileListItem from './components/file-list-item';
 export interface FileUploadProps extends Omit<DropzoneOptions, 'onDrop' | 'onDropAccepted'> {
   sx?: SxProps<Theme>;
   typographyProps?: TypographyProps;
+  buttonProps?: Omit<ButtonProps, 'onClick'>;
   title?: string;
   buttonText?: string;
   value: File[];
@@ -21,6 +22,7 @@ const FileUpload = ({
   title,
   buttonText,
   typographyProps,
+  buttonProps,
   disabled,
   maxSize,
   ...options
@@ -70,7 +72,7 @@ const FileUpload = ({
         <Typography variant="caption" textAlign="center" sx={{ paddingY: 1 }} {...typographyProps}>
           {title}
         </Typography>
-        <Button variant="contained" onClick={open} disabled={disabled} sx={{ marginBottom: 1 }}>
+        <Button variant="contained" onClick={open} disabled={disabled} sx={{ marginBottom: 1 }} {...buttonProps}>
           {buttonText}
         </Button>
         <FormHelperText> {fileRejections[0]?.errors[0]?.message} </FormHelperText>

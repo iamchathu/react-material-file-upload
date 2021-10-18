@@ -36,4 +36,7 @@ Custom.args = {
   ...Basic.args,
   title: 'Select files or drag them',
   buttonText: 'Upload files',
+  buttonProps: {
+    variant: 'outlined',
+  },
 };
