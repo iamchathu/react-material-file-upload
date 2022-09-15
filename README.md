@@ -28,7 +28,21 @@ import FileUpload from 'react-material-file-upload';
 
 const App = () => {
   const [files, setFiles] = useState<File[]>([]);
-  return <FileUpload value={files} onChange={setFiles} />;
+  const validateDeletion = (file: File) => file.name === 'i-can-be-deleted.jpg';
+  return <FileUpload value={files} onChange={setFiles} onDelete={validateDeletion} />;
+};
+```
+
+You can also intercept the deletion of an item.
+
+```ts
+import { useState } from 'react';
+import FileUpload from 'react-material-file-upload';
+
+const App = () => {
+  const [files, setFiles] = useState<File[]>([]);
+  const validateDeletion = (file: File) => file.name === 'i-can-be-deleted.jpg'; // return true to delete the item
+  return <FileUpload value={files} onChange={setFiles} onDelete={validateDeletion} />;
 };
 ```
 
