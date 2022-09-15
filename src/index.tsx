@@ -3,7 +3,7 @@ import type { ButtonProps, TypographyProps } from '@mui/material';
 import { Box, Button, FormControl, FormHelperText, Typography } from '@mui/material';
 import type { SxProps, Theme } from '@mui/system';
 import { DropzoneOptions, useDropzone } from 'react-dropzone';
-import FileListItem from './components/file-list-item';
+import FileListItem, { LoadingFile } from './components/file-list-item';
 
 export interface FileUploadProps extends Omit<DropzoneOptions, 'onDrop' | 'onDropAccepted'> {
   sx?: SxProps<Theme>;
@@ -11,9 +11,9 @@ export interface FileUploadProps extends Omit<DropzoneOptions, 'onDrop' | 'onDro
   buttonProps?: Omit<ButtonProps, 'onClick'>;
   title?: string;
   buttonText?: string;
-  value: File[];
-  onChange: (files: File[]) => void;
-  onDelete?: (file: File) => boolean
+  value: LoadingFile[];
+  onChange: (files: LoadingFile[]) => void;
+  onDelete?: (file: LoadingFile) => boolean
 }
 
 const FileUpload = ({

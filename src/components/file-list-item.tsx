@@ -1,10 +1,14 @@
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import { Chip } from '@mui/material';
+import { Chip, CircularProgress } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+export interface LoadingFile extends File {
+  isLoading?: boolean
+}
+
 export interface FileListItemProps {
-  file: File;
-  onDelete: (file: File) => void;
+  file: LoadingFile;
+  onDelete: (file: LoadingFile) => void;
 }
 
 const ListItem = styled('li')(({ theme }) => ({
@@ -13,7 +17,7 @@ const ListItem = styled('li')(({ theme }) => ({
 
 const FileListItem = ({ file, onDelete }: FileListItemProps) => (
   <ListItem>
-    <Chip label={file.name} icon={<UploadFileIcon />} variant="outlined" sx={{ maxWidth: 200 }} onDelete={() => onDelete(file)} />
+    <Chip label={file.name} icon={!file.isLoading ? <CircularProgress size={20} /> : <UploadFileIcon />} variant="outlined" sx={{ maxWidth: 200 }} onDelete={() => onDelete(file)} />
   </ListItem>
 );
 
