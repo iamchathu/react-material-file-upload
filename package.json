@@ -8,19 +8,21 @@
   "files": [
     "lib"
   ],
-  "repository": "https://github.com/iamchathu/react-material-file-upload.git",
-  "author": "Chathu Vishwajith <iam@chathu.me>",
+  "repository": "https://github.com/klinikum-evb/react-material-file-upload-spinner.git",
+  "author": "Silvan Verhoeven <SilvanVerhoeven@github.com>",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf lib/",
     "tsc": "tsc -b .",
     "build": "rollup -c",
-    "prepare": "install-peers && husky install",
+    "prepare": "husky install",
     "lint": "eslint 'src/**/*.{ts,tsx}' --quiet --fix ",
     "prepublishOnly": "yarn clean && yarn build",
     "release": "standard-version",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "install-peers": "install-peers",
+    "postinstall": "yarn install-peers && yarn build"
   },
   "peerDependencies": {
     "@emotion/react": "^11.4.1",
