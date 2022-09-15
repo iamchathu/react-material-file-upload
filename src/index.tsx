@@ -13,6 +13,7 @@ export interface FileUploadProps extends Omit<DropzoneOptions, 'onDrop' | 'onDro
   buttonText?: string;
   value: File[];
   onChange: (files: File[]) => void;
+  onDelete: (file: File) => boolean
 }
 
 const FileUpload = ({
@@ -25,6 +26,7 @@ const FileUpload = ({
   buttonProps,
   disabled,
   maxSize,
+  onDelete,
   ...options
 }: FileUploadProps) => {
   const { fileRejections, getRootProps, getInputProps, open } = useDropzone({
@@ -44,7 +46,7 @@ const FileUpload = ({
     onChange(files);
   };
 
-  const files = value?.map((file, i) => <FileListItem key={file.name} name={file.name} onDelete={() => remove(i)} />);
+  const files = value?.map((file, i) => <FileListItem key={file.name} file={file} onDelete={(fileToDelete) => onDelete(fileToDelete) && remove(i)} />);
 
   return (
     <Box
