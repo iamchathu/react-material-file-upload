@@ -34,7 +34,7 @@ const FileUpload = ({
   disabled,
   maxSize,
   onDelete = () => true,
-  onAddFiles: onAddFile = () => {},
+  onAddFiles = () => {},
   fileComparator = areEqualFiles,
   ...options
 }: FileUploadProps) => {
@@ -47,7 +47,7 @@ const FileUpload = ({
     maxSize,
     onDropAccepted: (files: LoadingFile[]) => {
       const newFiles = getNewFiles(files)
-      onAddFile(newFiles)
+      onAddFiles(newFiles)
       onChange([...value, ...newFiles])
     },
     noClick: true,

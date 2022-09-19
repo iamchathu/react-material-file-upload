@@ -1,6 +1,6 @@
 {
   "name": "react-material-file-upload",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "File upload compoennt for React with Material UI components",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -15,7 +15,7 @@
     "clean": "rimraf lib/",
     "tsc": "tsc -b .",
     "build": "rollup -c",
-    "prepare": "husky install",
+    "prepare": "install-peers && husky install",
     "lint": "eslint 'src/**/*.{ts,tsx}' --quiet --fix ",
     "prepublishOnly": "yarn clean && yarn build",
     "release": "standard-version",
