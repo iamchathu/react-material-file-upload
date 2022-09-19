@@ -20,9 +20,7 @@
     "prepublishOnly": "yarn clean && yarn build",
     "release": "standard-version",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "install-peers": "install-peers",
-    "postinstall": "yarn install-peers && yarn build"
+    "build-storybook": "build-storybook"
   },
   "peerDependencies": {
     "@emotion/react": "^11.4.1",

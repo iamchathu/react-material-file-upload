@@ -24,29 +24,61 @@ Library is depends on `@mui/material`, `@mui/icons-material`, `@emotion/react`, 
 
 ```ts
 import { useState } from 'react';
-import FileUpload from 'react-material-file-upload';
+import FileUpload, { LoadingFile } from 'react-material-file-upload';
 
 const App = () => {
-  const [files, setFiles] = useState<File[]>([]);
-  const validateDeletion = (file: File) => file.name === 'i-can-be-deleted.jpg';
-  return <FileUpload value={files} onChange={setFiles} onDelete={validateDeletion} />;
-};
-```
-
-You can also intercept the deletion of an item.
-
-```ts
-import { useState } from 'react';
-import FileUpload from 'react-material-file-upload';
-
-const App = () => {
-  const [files, setFiles] = useState<File[]>([]);
-  const validateDeletion = (file: File) => file.name === 'i-can-be-deleted.jpg'; // return true to delete the item
+  const [files, setFiles] = useState<LoadingFile[]>([]);
+  const validateDeletion = (file: LoadingFile) => file.name === 'i-can-be-deleted.jpg';
   return <FileUpload value={files} onChange={setFiles} onDelete={validateDeletion} />;
 };
 ```
 
 [![Edit react-material-file-upload](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-material-file-upload-t156i?fontsize=14&hidenavigation=1&theme=dark)
+
+You can also control the deletion of an item.
+
+```ts
+import { useState } from 'react';
+import FileUpload, { LoadingFile } from 'react-material-file-upload';
+
+const App = () => {
+  const [files, setFiles] = useState<LoadingFile[]>([]);
+  const validateDeletion = (file: LoadingFile) => file.name === 'i-can-be-deleted.jpg'; // return true to delete the item
+  return <FileUpload value={files} onChange={setFiles} onDelete={validateDeletion} />;
+};
+```
+
+To show and control the loading spinner while the file is being uploaded, set the loading state at the addition of new files:
+
+```ts
+import { useState } from 'react';
+import FileUpload, { LoadingFile } from 'react-material-file-upload';
+
+const App = () => {
+  const [files, setFiles] = useState<LoadingFile[]>([]);
+
+  const handleNewFiles = (newFiles: LoadingFile[]) => {
+    newFiles.forEach(async (file) => {
+      file.isLoading = true;
+      file.abortController = new AbortController(); // allows us to abort the file upload in `handleDelete`
+      await uploadFile(file)
+        .then(() => {
+          file.isLoading = false;
+        })
+        .catch((error) => {
+          if (error.name !== 'AbortError') throw error; // we do not want to show the AbortError as the user decided to abort the upload
+        });
+    });
+  };
+
+  const handleDelete = (file: LoadingFile) => {
+    file.abortController?.abort();
+    return true;
+  };
+
+  return <FileUpload value={files} onChange={setFiles} onDelete={handleDelete} onAddFiles={handleNewFiles} />;
+};
+```
 
 [react-dropzone]: https://react-dropzone.js.org/
 [mui]: https://mui.com
