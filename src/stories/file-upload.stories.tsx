@@ -1,42 +1,56 @@
-import { Meta, Story } from '@storybook/react';
-import React, { useState } from 'react';
-import FileUpload, { FileUploadProps } from '..';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
+import { FileUpload, type FileUploadProps } from '../index.js';
 
-export default {
+const meta: Meta<typeof FileUpload> = {
   component: FileUpload,
   title: 'Component/FileUpload',
-  argTypes: {},
-} as Meta;
+};
 
-const Template: Story<FileUploadProps> = (args) => {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const Template = (args: FileUploadProps) => {
   const [files, setFiles] = useState<File[]>([]);
   return <FileUpload {...args} value={files} onChange={setFiles} />;
 };
 
-export const Basic = Template.bind({});
-export const ImageUpload = Template.bind({});
-export const Disabled = Template.bind({});
-export const Custom = Template.bind({});
-
-Basic.args = {
-  multiple: true,
-  maxSize: 7340032,
+export const Basic: Story = {
+  render: Template,
+  args: {
+    multiple: true,
+    maxSize: 7340032,
+  },
 };
 
-ImageUpload.args = {
-  accept: 'image/*',
-  ...Basic.args,
+export const ImageUpload: Story = {
+  render: Template,
+  args: {
+    accept: {
+      'image/*': [],
+    },
+    multiple: true,
+    maxSize: 7340032,
+  },
 };
 
-Disabled.args = {
-  disabled: true,
+export const Disabled: Story = {
+  render: Template,
+  args: {
+    disabled: true,
+  },
 };
 
-Custom.args = {
-  ...Basic.args,
-  title: 'Select files or drag them',
-  buttonText: 'Upload files',
-  buttonProps: {
-    variant: 'outlined',
+export const Custom: Story = {
+  render: Template,
+  args: {
+    multiple: true,
+    maxSize: 7340032,
+    title: 'Select files or drag them',
+    buttonText: 'Upload files',
+    buttonProps: {
+      variant: 'outlined',
+    },
   },
 };
