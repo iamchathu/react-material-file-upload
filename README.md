@@ -1,7 +1,7 @@
 # React Material File Upload
 
-[React Dropzone][react-dropzone] based [Material UI][mui] file upload component for React.js. This is created for [Material UI][mui] v5 or later versions.
-Written in Typescript. Library exports `commonjs` and `esm` modules.
+[React Dropzone][react-dropzone] based [Material UI][mui] file upload component for React.js. This is created for [Material UI][mui] v7 or later versions.
+Written in Typescript. Library exports only an `esm` module.
 
 [![npm](https://img.shields.io/npm/v/react-material-file-upload.svg)](https://www.npmjs.com/package/react-material-file-upload)
 [![Known Vulnerabilities](https://snyk.io/test/github/iamchathu/react-material-file-upload/badge.svg)](https://snyk.io/test/github/iamchathu/react-material-file-upload)
@@ -24,7 +24,7 @@ Library is depends on `@mui/material`, `@mui/icons-material`, `@emotion/react`, 
 
 ```ts
 import { useState } from 'react';
-import FileUpload from 'react-material-file-upload';
+import { FileUpload } from 'react-material-file-upload';
 
 const App = () => {
   const [files, setFiles] = useState<File[]>([]);
