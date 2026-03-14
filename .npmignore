@@ -2,11 +2,12 @@
 .husky/
 .storybook/
 .commitlintrc.json
-.eslintignore
-.eslintrc.json
+eslint.config.js
 .lintstagedrc.json
 .prettierignore
 .prettierrc
-rollup.config.js
+tsup.config.ts
 tsconfig.json
 src/
+.github/
+.releaserc

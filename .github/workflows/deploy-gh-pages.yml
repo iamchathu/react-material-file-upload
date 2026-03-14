@@ -1,0 +1,46 @@
+# Workflow name
+name: Build and Publish Storybook to GitHub Pages
+
+on:
+    # Event for the workflow to run on
+    push:
+        branches:
+            - "master" # Replace with the branch you want to deploy from
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+# List of jobs
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.build-publish.outputs.page_url }}
+        # Job steps
+        steps:
+            # Manual Checkout
+            - uses: actions/checkout@v6
+
+            # Install pnpm
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+
+            # Set up Node
+            - uses: actions/setup-node@v6
+              with:
+                  node-version: "24"
+                  cache: "pnpm"
+
+            #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
+            - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.4
+              id: build-publish
+              with:
+                  install_command: pnpm install
+                  build_command: pnpm build-storybook
+                  path: storybook-static
+                  checkout: false

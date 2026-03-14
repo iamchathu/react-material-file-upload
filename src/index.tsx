@@ -2,8 +2,8 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import type { ButtonProps, TypographyProps } from '@mui/material';
 import { Box, Button, FormControl, FormHelperText, Typography } from '@mui/material';
 import type { SxProps, Theme } from '@mui/system';
-import { DropzoneOptions, useDropzone } from 'react-dropzone';
-import FileListItem from './components/file-list-item';
+import { type DropzoneOptions, useDropzone } from 'react-dropzone';
+import { FileListItem } from './components/file-list-item.js';
 
 export interface FileUploadProps extends Omit<DropzoneOptions, 'onDrop' | 'onDropAccepted'> {
   sx?: SxProps<Theme>;
@@ -15,12 +15,12 @@ export interface FileUploadProps extends Omit<DropzoneOptions, 'onDrop' | 'onDro
   onChange: (files: File[]) => void;
 }
 
-const FileUpload = ({
+export const FileUpload = ({
   value,
   onChange,
   sx,
-  title,
-  buttonText,
+  title = "Drag 'n' drop some files here, or click to select files",
+  buttonText = 'Upload',
   typographyProps,
   buttonProps,
   disabled,
@@ -92,10 +92,3 @@ const FileUpload = ({
     </Box>
   );
 };
-
-FileUpload.defaultProps = {
-  title: "Drag 'n' drop some files here, or click to select files",
-  buttonText: 'Upload',
-};
-
-export default FileUpload;

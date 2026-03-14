@@ -117,5 +117,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-
+# Build output
 lib/
+
+# Storybook build output
+storybook-static/
