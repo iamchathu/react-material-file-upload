@@ -1,3 +1,14 @@
+# [1.0.0](https://github.com/iamchathu/react-material-file-upload/compare/v0.0.4...v1.0.0) (2026-03-14)
+
+
+* feat!: upgrade to React 19, MUI v7 and ESM-only named exports ([#8](https://github.com/iamchathu/react-material-file-upload/issues/8)) ([389e3b8](https://github.com/iamchathu/react-material-file-upload/commit/389e3b8f1c0a1c4ef2f9dca4774b104d33ae608c))
+
+
+### BREAKING CHANGES
+
+* default import removed, use named import instead.
+Install react@19, @mui/material@7, react-dropzone@15 as peer dependencies.
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

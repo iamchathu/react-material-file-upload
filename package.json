@@ -22,7 +22,6 @@
   "scripts": {
     "clean": "rimraf lib/",
     "types:check": "tsc -p tsconfig.json --noEmit",
-    "prepare": "husky install",
     "build": "tsup",
     "lint": "eslint 'src/**/*.{ts,tsx}' --quiet --fix ",
     "prepublishOnly": "pnpm clean && pnpm build",
