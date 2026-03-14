@@ -17,7 +17,7 @@ Written in Typescript. Library exports `commonjs` and `esm` modules.
 ## Install
 
 ```bash
-yarn add react-material-file-upload
+pnpm add react-material-file-upload
 ```
 
 - Peer dependencies.
@@ -28,7 +28,7 @@ Library is depends on `@mui/material`, `@mui/icons-material`, `@emotion/react`, 
 
 ```ts
 import { useState } from 'react';
-import FileUpload from 'react-material-file-upload';
+import { FileUpload } from 'react-material-file-upload';
 
 const App = () => {
   const [files, setFiles] = useState<File[]>([]);
