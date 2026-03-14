@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/iamchathu/react-material-file-upload/compare/v1.0.0...v1.0.1) (2026-03-14)
+
+
+### Bug Fixes
+
+* update installation command and import statement in Introduction.mdx ([#9](https://github.com/iamchathu/react-material-file-upload/issues/9)) ([126090a](https://github.com/iamchathu/react-material-file-upload/commit/126090af71259958614d6be36b9794d80d61754b))
+
 # [1.0.0](https://github.com/iamchathu/react-material-file-upload/compare/v0.0.4...v1.0.0) (2026-03-14)
 
 
