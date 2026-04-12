@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/iamchathu/react-material-file-upload/compare/v1.0.1...v1.0.2) (2026-04-12)
+
+
+### Bug Fixes
+
+* :arrow_up: upgrade dev dependencies ([198c76a](https://github.com/iamchathu/react-material-file-upload/commit/198c76a814a844e0f6ef81dcd35f3a1bede24d5e))
+
 ## [1.0.1](https://github.com/iamchathu/react-material-file-upload/compare/v1.0.0...v1.0.1) (2026-03-14)
 
 
